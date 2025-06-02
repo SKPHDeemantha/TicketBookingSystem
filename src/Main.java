@@ -1,15 +1,58 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    void  displayList(){
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        System.out.println("---Movie Ticket Booking System---");
+        System.out.println("1. Display a Movie");
+        System.out.println("2. Book a Ticket");
+        System.out.println("3. Cancel a Ticket");
+        System.out.println("4. Generate Report");
+        System.out.println("5. Exit");
+
     }
+    public static void main(String[]args){
+        Scanner scanner=new Scanner(System.in);
+        Main main=new Main();
+
+        main.displayList();
+        System.out.println("Enter your choice : ");
+        int userInput= scanner.nextInt();
+
+        if (userInput==1) {
+
+            System.out.println(" ");
+            Movie movie1 = new Movie("The Game", "2.5 h", "English", 25, 20);
+            Movie movie2 = new Movie("The Game", "2.5 h", "English", 25, 20);
+            movie1.displayMovie();
+            movie2.displayMovie();
+
+        } else if (userInput==2) {
+            System.out.println("Available Movies");
+            System.out.println("1. The Game");
+            System.out.println("2. Akasa kusum");
+            System.out.println("Select a movie (1 or 2)");
+            int selectMovie= scanner.nextInt();
+            System.out.println("Enter  seat Number :");
+            int selectSeatNumbers= scanner.nextInt();
+            System.out.println("Enter seat Type (Regular/Premium) :");
+            String selectSeatType=scanner.nextLine();
+
+            System.out.println("Ticket Booked");
+            Movie.Ticket ticket=new Movie.Ticket(1,selectMovie,selectSeatNumbers,selectSeatType,2500);
+
+        } else if (userInput==3) {
+            System.out.println("Enter The ticket ID :");
+            int selectTicketId = scanner.nextInt();
+
+        } else if(userInput==4) {
+            System.out.println("Booking Summery :");
+            System.out.println("Ticket sold :");
+            System.out.println("Total revenue : $");
+
+        }
+
+
+    }
+
 }
+
